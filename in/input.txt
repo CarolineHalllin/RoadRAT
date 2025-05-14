@@ -1,0 +1,34 @@
+%Input file
+
+%Settings
+spacing = 200     # Road point spacing, m [Float]
+start_yr = 2023   # Start year for analysis [integer]
+end_yr = 2150     # End year for analysis [integer]
+SLR = 1.11        # Relative SLR until endyear, m [Float]
+MSL = 0.159       # Mean sea level, m relative elevation ref [Float]
+FS_depth = 1        # Depth at the deepest part of the foreshore where FS-file is etraxted [m rel MSL]
+Db_max = 2.4        # Maximum dune toe elevation, m relative elevation ref [Float]
+CL_yr = 1960      # Year of historical coastline [integer]
+depth_wave_file = 12.9 # Depth of wave data extraction point for waves in input wave file, m [Float]
+output_file = output.txt #Name of output file
+road_width = 6      #Width of road, m [Float]
+
+%Files with input data
+SWL_file_1 = Ystad_SWL.txt  # Textfile with observed water levels [time, WL(m)]
+road_file = road.shp  		# Shp-file with road line segments (most nearshore road location)
+DEM_file = dem.tif     		# Digital elevation model extending from the shoreline to the road
+CL_file = cl.shp      		# Shapefile with a line indicating the vegetation line
+SH_file = SH.shp      		# Shapefile with a line indicating the shoreline
+hist_CL_file = hist_CL.shp  # Shapefile with a line indicating the historical vegetation line
+FS_file = FS_lim.shp       # Shapefile with a line indicating the lower level of the foreshore
+wave_file = waves.csv       # Csv file with wave data input
+
+%Processes
+process_inundation = True  # Process inundation, True or False [Bool]
+process_erosion = True    # Process erosion, True or False [Bool]
+process_runup = True      # Process runup, True or False [Bool]
+process_SLR = True         # Process SLR, True or False [Bool]
+process_extract_waves = False #Indicate if waves should be extracted from netcdf-files within RoadRAT: else provided in file
+process_plotting = True    # Process plotting, True or False [Bool]
+process_calibration = False # Process calibration, True or False [Bool] Use if calibrating erosion for a time series
+process_hallermeier_rhodes = True # Use the Hallermeier and rhodes equation to calculate erosion return levels [Bool]
